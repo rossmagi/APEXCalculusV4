@@ -1,0 +1,11 @@
+\section{Constrained Optimization: Lagrange Multipliers}\label{sec:Lagrange}
+
+At the end of the previous section, we explored \textit{constrained optimization}, \index{Constrained Optimization} a problem where we seek an extremum, but the variables are constrained to only take on values that satisfy some condition.  The method demonstrated in the previous section involves using the constraint equation to eliminate a variable from the function we want to optimize.  In this section, we explore a different method for solving constrained optimization problems.  The method is named after Joseph-Loius Lagrange, a famous Italian mathematician who lived in the 1700 and 1800s, and is called the method of Lagrange Multipliers.
+
+\vskip\baselineskip
+\noindent\textbf{\large Lagrange Multipliers: A Graphical Interpretation}
+\vskip\baselineskip
+
+For visualization purposed, we'll explore the method by way of a specific example involving a function of two variables.  We seek to find the maximum value of the function $f(x,y) = 1 - x^2 - y^2$ subject to the constraint $x + y = 1.$  A representation of the problem is shown in figure \ref{fig:3D_constrained}.  Without the constraint, the maximum is clearly given by $z=1$ when $x = y = 0.$  The constraint forces us to only consider $x$ and $y$ values such that $x + y = 1$. This constraint is drawn as a dashed line in the $x-y$ plane, and as a solid curve on the surface.
+
+%\printexercises{exercises/12_07_exercises}

@@ -17,11 +17,12 @@
 			every axis y label/.style={at={(axis cs:0,\pgfkeysvalueof{/pgfplots/ymax},0)},xshift=4pt,yshift=3pt},
 				ylabel={\scriptsize $y$},
 				every axis z label/.style={at={(axis cs:0,0,\pgfkeysvalueof{/pgfplots/zmax})},xshift=0pt,yshift=4pt},
-				zlabel={\scriptsize $z$}
+				zlabel={\scriptsize $z$},
 			]
 
 \addplot3[domain=-1:1,,y domain=-1:1,surf,%fill=white,
-colormap={mp2}{\colormapplaneone},,faceted color=black!40,samples=25,samples y=25,very thin,z buffer=sort] {1- x^2 - y^2};
+colormap={mp2}{\colormapplaneone},
+faceted color=black!40,samples=25,samples y=25,very thin,z buffer=sort] {1- x^2 - y^2};
 
 \addplot3 [thick,{\colortwo}, smooth,domain=-0:1,samples=10,samples y=0] ({x},{1-x},{1 - x^2 - (1-x)^2});
 \addplot3 [thick,{\colortwo}, smooth,dashed,opacity=.5,domain=-0:1,samples=10,samples y=0] ({x},{1-x},{0});

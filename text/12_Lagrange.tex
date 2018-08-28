@@ -6,15 +6,40 @@ At the end of the previous section, we explored \textit{constrained optimization
 \noindent\textbf{\large Lagrange Multipliers: A Graphical Interpretation}
 \vskip\baselineskip
 
-For visualization purposes, we'll explore the method by way of a specific example involving a function of two variables.  We seek to find the maximum value of the function $f(x,y) = 1 - x^2 - y^2$ subject to the constraint $x + y = 1.$  A representation of the problem is shown in figure \ref{fig:3D_constrained}.  Without the constraint, the maximum is clearly given by $z=1$ when $x = y = 0.$  The constraint forces us to only consider $x$ and $y$ values such that $x + y = 1$. This constraint is drawn as a dashed line in the $x-y$ plane, and as a solid curve on the surface.
+For visualization purposes, we'll explore the method by way of a specific example involving a function of two variables.  We seek to find the maximum value of the function $f(x,y) = 1 - x^2 - y^2$ subject to the constraint $x + y = 1.$  A representation of the problem is shown in figure \ref{fig:3D_constrained}.  Without the constraint, the maximum is clearly given by $z=1$ when $x = y = 0.$  The constraint forces us to only consider $x$ and $y$ values such that $x + y = 1$. This constraint is drawn as a dashed line in the $x-y$ plane, and as a solid curve on the surface.  Essentially, we must walk along the red curve in figure \ref{fig:3D_constrained}(a) until we find its highest point.  Notice that as we walk along the constraint curve, we cross level curves of the function $f$.  Crossing a level curve means we're going uphill or downhill.  In other words, the places where $f$ is maximized (or minimized) subject to the constraint must be places where the constraint curve (often expressed as $g(x,y)=0$) is tangent to a level curve of the function $f(x,y)$. We see this more clearly in figure \ref{fig:3D_constrained}(b).
 
-%\mfigurethree{width=150pt,3Dmenu,activate=onclick,deactivate=onclick,
-%	3Droll=0,
-%	3Dortho=0.005153999198228121,
-%	3Dc2c=0.31346064805984497 -0.9024837017059326 0.2954072952270508,
-%	3Dcoo=45.312767028808594 65.24303436279297 62.16134262084961,
-%	3Droo=149.9999931723703,
-%	3Dlights=Headlamp,add3Djscript=asylabels.js}{width=150pt}{.75}{Graphing the volume of a box with girth $4w$ and length $\ell$, subject to a size constraint.}{fig:3D_constrained}{figures/fig12_09_3D_constrained}
-\mfigure[scale=1.25]{.65}{Graphing the function $f(x,y)=1-x^2-y^2$ with the constraint $x + y = 1$}{fig:3D_constrained}{figures/fig12_09_3D_constrained}
+Now, in order for two curves to be tangent at a point, their normal vectors must be parallel. (They must either point in the same or opposite directions.) We know from section \ref{sec:directional_derivative} that the gradient $\nabla f(x_0,y_0)$ is orthogonal to the level curve of $f$ passing through the point $(x_0,y_0)$.  Further, since $x+y=1$ is simply the zero level curve of the function $g(x,y)=x+y-1$, the vector $\nabla g(x,y)$ is orthogonal to the constraint curve.  Therefore, we need a point $(x_0,y_0)$ on the constraint curve $x+y=1$ such that $\nabla f(x_0,y_0)$ and $\nabla g(x_0,y_0)$ are scalar multiples of each other (parallel vectors).  We state these requirements explicitly in theorem \ref{thm:Lagrange}.  The example following the theorem formalizes the arguments given above while making use of many of the concepts from this chapter.
+
+\mtable{.55}{Graphing the level curves function $f(x,y)=1-x^2-y^2$ along with the constraint $x + y = 1$.}{fig:3D_constrained}{%
+	\begin{tabular}{c}
+		\myincludegraphics[scale=1]{figures/fig12_09_3D_constrained}\\
+		(a)\\[15pt]
+		\myincludegraphics[scale=1]{figures/fig12_09_3D_constrained_b}\\
+		(b)
+	\end{tabular}
+}
+
+\theorem{thm:Lagrange}{Lagrange's Theorem}
+{Let $f(x,y)$ and $g(x,y)$ be differentiable at the point $(x_0,y_0)$.  If $f(x,y)$ has a local minimum or maximum subject to the constraint $g(x,y)=0$ at the point $(x_0,y_0)$ (and if $\nabla g(x_0,y_0) \neq \vec{0}$), then there exists a scalar $\lambda$ such that
+	\[
+		\nabla f(x_0,y_0) = \lambda \nabla g(x_0,y_0).
+	\]
+The scalar $\lambda$ is called a \emph{Lagrange multiplier}. \index{Lagrange multiplier}\index{method of Lagrange multipliers}
+}
+
+\example{ex_Lagrange_proof}{A proof of Lagrange's Theorem}{
+Use tools from this chapter to prove Lagrange's theorem.}
+{Assume the $f(x,y)$ is maximized (or minimized) subject to the constraint $g(x,y)=0$ at the point $(x_0,y_0)$.  Let $\vec{r}(t)$ be a vector-valued function description of the constraint curve $g(x,y)=0$ such that $\vec{r}(t_0)=\la x_0,y_0 \ra$ and $\vec{r}'(t_0) \neq \vec{0}.$.  Since $\vec{r}(t)$ describes the constraint curve, $f(\vec{r}(t))$, for varying $t$ values, corresponds to walking along the surface $z=f(x,y)$ along the path given by the constraint $g(x,y)=0$. (This is the red curve from figure \ref{fig:3D_constrained}(a).)By assumption $f(\vec{r}(t_0))$ is an extreme value.  Thus $\dfrac{d}{dt} f(\vec{r}(t)) = 0$ when $t = t_0$.  Using the multivariable chain rule from section \ref{sec:multi_chain} and, this is
+	\[
+		\nabla f(x_0,y_0) \cdot \vec{r}'(t_0)=0.
+	\]
+We now have two options. The first is that $\nabla f(x_0,y_0) = \vec{0}.$  In this case, the statement of Lagrange's theorem is easily satisfied by choosing $\lambda = 0.$
+
+The second option is that $\nabla f(x_0,y_0) \neq \vec{0}.$ In this second case, the vectors $\nabla f(x_0,y_0)$ and $\vec{r}'(t_0)$ must be orthogonal.  We know from section \ref{sec:vvf_calc} that $\vec{r}'(t_0)$ is tangent to the curve $\vec{r}(t)$.  It follows that $\nabla f(x_0,y_0)$ must be orthogonal to $\vec{r}(t_0)$, which is a vector tangent to the constraint curve $g(x,y)=0$ at the point $(x_0,y_0)$. Finally, the constraint curve $g(x,y)=0$ is simply the zero level curve of the function $g(x,y)$.  From section \ref{sec:directional_derivative}, we know that $\nabla g(x_0,y_0)$ is orthogonal to the level curve of $g$ at $(x_0,y_0)$. So then $\nabla f(x_0,y_0)$ and $\nabla g(x_0,y_0)$ are \emph{both} orthogonal to the same vector, and must be parallel.  It follows that
+	\[
+		\nabla f(x_0,y_0) = \lambda \nabla g(x_0,y_0)
+	\] 
+for some scalar $\lambda$.
+}
 
 %\printexercises{exercises/12_07_exercises}

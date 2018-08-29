@@ -4,4 +4,4 @@
 \contentsline {section}{\numberline {0.1}Extreme Values}{1}{section.0.1}
 \contentsline {section}{\numberline {0.2}Constrained Optimization: Lagrange Multipliers}{11}{section.0.2}
 \contentsline {chapter}{\numberline {A}Solutions To Selected Problems}{A.1}{appendix.A}
-\contentsline {chapter}{Index}{A.3}{section*.11}
+\contentsline {chapter}{Index}{A.3}{section*.12}

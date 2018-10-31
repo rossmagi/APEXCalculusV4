@@ -2,14 +2,14 @@
 
 In sections \ref{sec:double_int_polar} and \ref{sec:cylindrical_spherical} we learned how to set up and evaluate integrals in coordinate systems other than the familiar rectangular coordinate system.  In each of these cases, we observed that changing coordinate systems could make it much easier to evaluate a double or triple integral because the descriptions of the regions of integration were much simpler using a different coordinate system.
 
-Recall that this process of integrating in a new coordinate system involves more than simply using formulas to change variables: $x = r\cos \theta$ and $y = r\sin \theta$ for the polar and cylindrical coordinate systems and $x = \rho\sin\phi \cos \theta, y = \rho\sin\phi\sin\theta$ and $z = \rho\cos\phi$ for the spherical coordinate system.  In polar coordinates, $dA$ becomes $r\,drd\theta$, in cylindrical coordinates, $dV$ becomes $r\,dzdrd\theta$, and in spherical coordinates $dV$ becomes $\rho^2\sin\phi \,d\rho d\theta d\phi.$  We derived these descriptions using geometric ideas and carefully drawn pictures.  In this section, we learn a general technique for converting integrals between coordinate systems.
+Recall that this process of integrating in a new coordinate system involves more than simply using formulas to change variables: $x = r\cos \theta$ and $y = r\sin \theta$ for the polar and cylindrical coordinate systems and $x = \rho\sin\varphi \cos \theta, y = \rho\sin\varphi\sin\theta$ and $z = \rho\cos\varphi$ for the spherical coordinate system.  In polar coordinates, $dA$ becomes $r\,drd\theta$, in cylindrical coordinates, $dV$ becomes $r\,dzdrd\theta$, and in spherical coordinates $dV$ becomes $\rho^2\sin\varphi \,d\rho d\theta d\varphi.$  We derived these descriptions using geometric ideas and carefully drawn pictures.  In this section, we learn a general technique for converting integrals between coordinate systems.
 
 \vskip\baselineskip
 \noindent\textbf{\large Motivation Using Integrals In One Dimension.}\\
 
 Suppose we want to evaluate the definite integral
 \[
-	\int_0^3 x\sqrt{1+x^2},\dx.
+	\int_0^3 x\sqrt{1+x^2}\,dx.
 \]
 Using the substitution $u= 1+x^2$, we calculate the differential $du = 2x\,dx$ and update the limits of integration to find
 \[
@@ -28,4 +28,4 @@ Though different than our usual way of performing a $u$-substitution, this modif
 
 
 
-\printexercises{exercises/13_06_exercises}
+%\printexercises{exercises/13_06_exercises}

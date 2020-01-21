@@ -1,14 +1,12 @@
 \section{Constrained Optimization: Lagrange Multipliers}\label{sec:Lagrange}
 
-At the end of the previous section, we explored \textit{constrained optimization}. \index{Constrained Optimization} In constrained optimization, we seek an extremum, but the variables are constrained to only take on values that satisfy some condition.  The method demonstrated in the previous section involves using the constraint equation to eliminate a variable from the function we want to optimize.  In this section, we explore a different method for solving constrained optimization problems.  The method is named after Joseph-Louis Lagrange, a famous Italian mathematician who lived in the 1700 and 1800s, and is called the method of Lagrange Multipliers.
+At the end of the previous section, we explored \textit{constrained optimization}. \index{Constrained Optimization} In a constrained optimization problem, we seek an extremum, but the variables are constrained to only take on values that satisfy some condition.  The method demonstrated in the previous section involves using the constraint equation to eliminate a variable from the function we want to optimize.  In this section, we explore a different method for solving constrained optimization problems.  The method is named after Joseph-Louis Lagrange, a famous Italian mathematician who lived in the 1700 and 1800s, and is called the method of Lagrange Multipliers.
 
 \vskip\baselineskip
 \noindent\textbf{\large Lagrange Multipliers: A Graphical Interpretation}
 \vskip\baselineskip
 
-For visualization purposes, we'll explore the method by way of a specific example involving a function of two variables.  We seek to find the maximum value of the function $f(x,y) = 1 - x^2 - y^2$ subject to the constraint $x + y = 1.$  A representation of the problem is shown in figure \ref{fig:3D_constrained}.  Without the constraint, the maximum is clearly given by $z=1$ when $x = y = 0.$  The constraint forces us to only consider $x$ and $y$ values such that $x + y = 1$. This constraint is drawn as a dashed line in the $xy$-plane, and as a solid curve on the surface.  Essentially, we must walk along the red curve in figure \ref{fig:3D_constrained}(a) until we find its highest point.  Notice that as we walk along the constraint curve, we cross level curves of the function $f$.  Any time we cross a level curve, it means $f$ is either increasing or decreasing. The only way to move along the constraint curve without crossing a level curve is to be tangent to a level curve.  In other words, the places where $f$ is maximized (or minimized) subject to the constraint must be places where the constraint curve (often expressed as $g(x,y)=0$) is tangent to a level curve of the function $f(x,y)$. We see this more clearly in figure \ref{fig:3D_constrained}(b).
-
-In order for two curves to be tangent at a point, their normal vectors must be parallel. That is, they must either point in the same or opposite directions. Finding normal vectors to the level curve and the constraint curve can be accomplished by using the gradient. We know from section \ref{sec:directional_derivative} that the gradient $\nabla f(x_0,y_0)$ is orthogonal to the level curve of $f$ passing through the point $(x_0,y_0)$, so $\nabla f(x_0,y_0)$ is one of our desired normal vectors.  The constraint curve $x+y=1$ is actually the level curve of a different function. It is the zero level curve of the function $g(x,y)=x+y-1$. Therefore the vector $\nabla g(x,y)$ must be orthogonal to the constraint curve, and $\nabla g(x_0,y_0)$ is our other normal vector.  Recall that parallel vectors are always scalar multiples of each other. That means our task is to find a point $(x_0,y_0)$ on the constraint curve such that $\nabla f(x_0,y_0)$ and $\nabla g(x_0,y_0)$ are scalar multiples.  We state these requirements explicitly in theorem \ref{thm:Lagrange}.  The example following the theorem formalizes the arguments given above while making use of many of the concepts from this chapter.
+For visualization purposes, we'll explore the method by way of a specific example involving a function of two variables.  We seek to find the maximum value of the function $f(x,y) = 1 - x^2 - y^2$ subject to the constraint $x + y = 1.$  A representation of the problem is shown in figure \ref{fig:3D_constrained}.  Without the constraint, the maximum is clearly given by $z=1$ when $x = y = 0.$  The constraint forces us to only consider $x$ and $y$ values such that $x + y = 1$. This constraint is drawn as a dashed line in the $xy$-plane, and as a solid curve on the surface.  Essentially, we must walk along the red curve in figure \ref{fig:3D_constrained}(a) until we find its highest point.  Notice that as we walk along the constraint curve, we cross level curves of the function $f$.  Any time we cross a level curve, it means $f$ is either increasing or decreasing. The only way to move along the constraint curve without crossing a level curve (and therefore gaining or losing elevation) is to walk tangent to a level curve.  In other words, the places where $f$ is maximized (or minimized) subject to the constraint must be places where the constraint curve (often expressed as $g(x,y)=0$) is tangent to a level curve of the function $f(x,y)$. We see this more clearly in figure \ref{fig:3D_constrained}(b).
 
 \mtable{.55}{Graphing the level curves function $f(x,y)=1-x^2-y^2$ along with the constraint $x + y = 1$.}{fig:3D_constrained}{%
 	\begin{tabular}{c}
@@ -18,6 +16,9 @@ In order for two curves to be tangent at a point, their normal vectors must be p
 		(b)
 	\end{tabular}
 }
+
+In order for two curves to be tangent at a point, their normal vectors must be parallel. That is, they must either point in the same or opposite directions. Finding normal vectors to the level curve and the constraint curve can be accomplished by using the gradient. We know from section \ref{sec:directional_derivative} that the gradient $\nabla f(x_0,y_0)$ is orthogonal to the level curve of $f$ passing through the point $(x_0,y_0)$, so $\nabla f(x_0,y_0)$ is one of our desired normal vectors.  The constraint curve $x+y=1$ is actually the level curve of a different function. It is the zero level curve of the function $g(x,y)=x+y-1$. Therefore the vector $\nabla g(x,y)$ will be orthogonal to the constraint curve, and $\nabla g(x_0,y_0)$ is our other normal vector.  Recall that parallel vectors are always scalar multiples of each other. That means our task is to find a point $(x_0,y_0)$ on the constraint curve such that $\nabla f(x_0,y_0)$ and $\nabla g(x_0,y_0)$ are scalar multiples.  We state these requirements explicitly in theorem \ref{thm:Lagrange}.  The example following the theorem formalizes the arguments given above while making use of many of the concepts from this chapter.
+
 
 \theorem{thm:Lagrange}{Lagrange's Theorem}
 {Let $f(x,y)$ and $g(x,y)$ be differentiable at the point $(x_0,y_0)$.  If $f(x,y)$ has a local minimum or maximum subject to the constraint $g(x,y)=0$ at the point $(x_0,y_0)$ and if $\nabla g(x_0,y_0) \neq \vec{0}$, then there exists a scalar $\lambda$ such that
@@ -33,20 +34,23 @@ Use tools from this chapter to prove Lagrange's theorem.}
 	\[
 		\nabla f(x_0,y_0) \cdot \vec{r}\primeskip^\prime(t_0)=0.
 	\]
+
 We now have two options. The first is that $\nabla f(x_0,y_0) = \vec{0}.$  In this case, the statement of Lagrange's theorem is easily satisfied by choosing $\lambda = 0.$
 
-The second option is that $\nabla f(x_0,y_0) \neq \vec{0}.$ In this second case, the vectors $\nabla f(x_0,y_0)$ and $\vec{r}\primeskip^\prime(t_0)$ must be orthogonal.  We know from section \ref{sec:vvf_calc} that $\vec{r}\primeskip^\prime(t_0)$ is tangent to the curve $\vec{r}(t)$.  It follows that $\nabla f(x_0,y_0)$ must be orthogonal to $\vec{r}(t_0)$, which is a vector tangent to the constraint curve $g(x,y)=0$ at the point $(x_0,y_0)$. Finally, the constraint curve $g(x,y)=0$ is simply the zero level curve of the function $g(x,y)$.  From section \ref{sec:directional_derivative}, we know that $\nabla g(x_0,y_0)$ is orthogonal to the level curve of $g$ at $(x_0,y_0)$. So then $\nabla f(x_0,y_0)$ and $\nabla g(x_0,y_0)$ are \emph{both} orthogonal to the same vector, and must be parallel.  Therefore
-	\[
-		\nabla f(x_0,y_0) = \lambda \nabla g(x_0,y_0)
-	\] 
+The second option is that $\nabla f(x_0,y_0) \neq \vec{0}.$ In this case, the vectors $\nabla f(x_0,y_0)$ and $\vec{r}\primeskip^\prime(t_0)$ must be orthogonal.  Since $\vec{r}\primeskip^\prime(t_0)$ is tangent to the curve $\vec{r}(t)$ (see section \ref{sec:vvf_calc}), it follows that $\nabla f(x_0,y_0)$ is orthogonal to a vector tangent to the constraint curve $g(x,y)=0$ at the point $(x_0,y_0)$. The constraint curve $g(x,y)=0$ is simply the zero level curve of the function $g(x,y)$, and from section \ref{sec:directional_derivative}, we know that $\nabla g(x_0,y_0)$ is orthogonal to the level curve of $g$ at $(x_0,y_0)$. Therefore, $\nabla f(x_0,y_0)$ and $\nabla g(x_0,y_0)$ are \emph{both} orthogonal to the vector $\vec{r}\primeskip^\prime(t_0)$, and must be parallel.  It follows that
+\[
+\nabla f(x_0,y_0) = \lambda \nabla g(x_0,y_0)
+\] 
 for some scalar $\lambda$. \qed
 }
+
+\newpage
 
 \vskip\baselineskip
 \noindent\textbf{\large Using the Method of Lagrange Multipliers}
 \vskip\baselineskip
 
-Though the previous example puts Lagrange's theorem on solid theoretical footing, it doesn't give us an explicit description for how to solve a constrained optimization problem.  Key idea \ref{idea:Lagrange_method} describes how to use Lagrange's theorem to solve actual problems.
+Though the previous example puts Lagrange's theorem on a solid theoretical footing, it doesn't give us an explicit description for how to solve a constrained optimization problem.  Key idea \ref{idea:Lagrange_method} describes how to use Lagrange's theorem to solve an actual problem.
 
 \keyidea{idea:Lagrange_method}{The Method of Lagrange Multipliers}
 {Suppose $f(x,y)$ and $g(x,y)$ satisfy the requirements of Lagrange's Theorem.  Suppose further that $f(x,y)$ has a maximum or minimum subject to the constraint $g(x,y)=0$. To find the maximum or minimum of $f(x,y)$
@@ -67,7 +71,7 @@ We start by solving the example presented at the beginning of the section.
 
 \vskip\baselineskip
 
-\example{ex_Lagrange1}{Using Lagrange Multipliers}{
+\example{ex_Lagrange1}{Using the Method of Lagrange Multipliers I}{
 	Find the maximum of $f(x,y) = 1-x^2-y^2$ subject to the constraint $x+y=1$.}
 {We first identify the constraint function as $g(x,y) = x+y-1$.  Calculating the gradients, we find $\nabla f(x,y) = \la -2x,-2y \ra$ and $\nabla g(x,y) = \la 1,1 \ra.$  We need to solve the system of equations
 	\[
@@ -81,13 +85,11 @@ In general, solving a system of equations can be quite difficult, especially if 
 }
 \enlargethispage{\baselineskip}
 
-\mnote{.44}{\textbf{Caution:} Recall from theorem \ref{thm:extreme_val3} that we can only guarantee $f(x,y)$ attains a maximum and minimum value if it is continuous on a closed and bounded set $S$. Here, the constraint $x+y=1$ is not closed and bounded. Therefore, we can't guarantee that $f(x,y)=1-x^2-y^2$ attains both a maximum and minimum on $x+y=1$.  In fact, figure \ref{fig:3D_constrained}(a) shows clearly that $f(x,y)$ has a maximum, but no minimum.  The steps in key idea \ref{idea:Lagrange_method} describe how to find relative maxima and minima, but do not guarantee anything about absolute maximum or minimum values.  Graphical reasoning is often helpful to interpret the results from key idea \ref{idea:Lagrange_method}.}
+\mnote{.79}{\textbf{Caution:} Recall from theorem \ref{thm:extreme_val3} that we can only guarantee $f(x,y)$ attains a maximum and minimum value if it is continuous on a closed and bounded set $S$. Here, the constraint $x+y=1$ is not closed and bounded. Therefore, we can't guarantee that $f(x,y)=1-x^2-y^2$ attains both a maximum and minimum on $x+y=1$.  In fact, figure \ref{fig:3D_constrained}(a) shows clearly that $f(x,y)$ has a maximum, but no minimum.  The steps in key idea \ref{idea:Lagrange_method} describe how to find relative maxima and minima, but do not guarantee anything about absolute maximum or minimum values.  Graphical reasoning is often helpful to interpret the results from key idea \ref{idea:Lagrange_method}.}
 
-\newpage
-
-\example{ex_lagrange_closed}{Using Lagrange Multipliers}{
+\example{ex_lagrange_closed}{Using the Method of Lagrange Multipliers II}{
 	Find the maximum and minimum values of $f(x,y)=4xy$ subject to the constraint $\dfrac{x^2}{9} + \dfrac{y^2}{4} = 1$.}
-{We first note that $\dfrac{x^2}{9} + \dfrac{y^2}{4} = 1$ is an ellipse, which is a closed and bounded region. According to the extreme value theorem, $f(x,y) = 4xy$ will attain both its minimum and maximum values somewhere on the constraint curve. To apply the method of Lagrange multipliers, we first calculate $\nabla f(x,y) = \la 4y, 4x \ra$ and $\nabla g(x,y) = \la \dfrac{2x}{9}, \dfrac{y}{2} \ra.$ We need to solve the system of equations
+{We first note that $\dfrac{x^2}{9} + \dfrac{y^2}{4} = 1$ is an ellipse. The points $(x,y)$ satisfying the ellipse equation form a closed bounded set. According to the extreme value theorem, $f(x,y) = 4xy$ will attain both its minimum and maximum values somewhere on the constraint curve. To apply the method of Lagrange multipliers, we first calculate $\nabla f(x,y) = \la 4y, 4x \ra$ and $\nabla g(x,y) = \la \dfrac{2x}{9}, \dfrac{y}{2} \ra.$ We need to solve the system of equations
 	\[
 	\begin{cases}
 		4y                              & = \dfrac{2}{9}\lambda x \smallskip \\
@@ -95,7 +97,7 @@ In general, solving a system of equations can be quite difficult, especially if 
 		\dfrac{x^2}{9} + \dfrac{y^2}{4} & = 1
 	\end{cases}
 	\]
-Unlike the previous example, this system of equations is nonlinear more difficult to solve.  Though there are many paths to the solution, we start by rewriting the first two equations as $18y = \lambda x$ and $8x = \lambda y.$  Multiplying the first by $y$ and the second by $x$, we have $18y^2 = \lambda yx$ and $8x^2 = \lambda xy$, which means that $18y^2 = 8x^2$.  Solving for $x^2$, we have $x^2 = \dfrac{9}{4}y^2$.  We can substitute this into the constraint equation to get $\dfrac{\frac{9}{4}y^2}{9} + \dfrac{y^2}{4} = 1.$ We easily solve this equation to get $y^2 = 2$ or $y = \pm \sqrt{2}$. Substituting back into $x^2 = \dfrac{9}{4}y^2$, we have $x^2 = \dfrac{9}{2}$ or $x = \pm \dfrac{3}{\sqrt{2}}.$ All combinations of these $x$ and $y$ values yields the 4 points
+Unlike the previous example, this system of equations is nonlinear more difficult to solve.  Though there are many paths to the solution, we start by rewriting the first two equations as $18y = \lambda x$ and $8x = \lambda y.$  Multiplying the first by $y$ and the second by $x$, we have $18y^2 = \lambda yx$ and $8x^2 = \lambda xy$, which means that $18y^2 = 8x^2$.  Solving for $x^2$, we have $x^2 = \dfrac{9}{4}y^2$.  We can substitute this into the constraint equation to get $\dfrac{\frac{9}{4}y^2}{9} + \dfrac{y^2}{4} = 1.$ We easily solve this equation to get $y^2 = 2$ or $y = \pm \sqrt{2}$. Substituting back into $x^2 = \dfrac{9}{4}y^2$, we have $x^2 = \dfrac{9}{2}$ or $x = \pm \dfrac{3}{\sqrt{2}}.$ Looking at all combinations of the $x$ and $y$ values yields the 4 points
 	\[
 		\left ( -\frac{3}{\sqrt{2}},-\sqrt{2}\right), 	\left ( -\frac{3}{\sqrt{2}},\sqrt{2}\right), 	\left ( \frac{3}{\sqrt{2}},-\sqrt{2}\right), \text{ and } 	\left ( \frac{3}{\sqrt{2}},\sqrt{2}\right).
 	\]
@@ -113,7 +115,7 @@ We see that $f(x,y) = 4xy$ has two maximum and two minimum values on the ellipti
 \enlargethispage{\baselineskip}
 \vskip\baselineskip
 
-\mfigure{.4}{Visualization of $f(x,y) = 4xy$ subject to $\dfrac{x^2}{9} + \dfrac{y^2}{4} = 1$.}{fig:lagrange_closed}{figures/fig12_09_lagrange_closed}
+\mfigure{.8}{Visualization of $f(x,y) = 4xy$ subject to $\dfrac{x^2}{9} + \dfrac{y^2}{4} = 1$.}{fig:lagrange_closed}{figures/fig12_09_lagrange_closed}
 
 
 Though we introduced the method of Lagrange multipliers using a function and constraint equation involving two variables, the method can be applied in 3 (or higher) dimensions.  The only difference in 3 dimensions is that the system of equations now involves the equation $f_z(x,y,z) = \lambda g_z(x,y,z)$ in addition to the other equations. Therefore, we must solve a system of 4 equations in 4 unknowns. For a function of $n$ dimensions, $f(x_1,x_2,\cdots,x_n)$ subject to the constraint $g(x_1,x_2,\cdots,x_n)$, we have a system of $n+1$ equations. The first $n$ equations come from the gradients, and the $n+1$st equation comes from the constraint.
@@ -122,7 +124,7 @@ Though we introduced the method of Lagrange multipliers using a function and con
 
 \example{ex_lagrange_3D}{Using Lagrange Multipliers in 3 Dimensions}{
 	Find the minimum value of $f(x,y) = x^2 + y^2 + z^2$ subject to the constraint $2x+3y-z-9 = 0$.}
-{Notice that the constant equation $2x + 3y - z - 9 = 0$ is the equation for a plane.  This is not a closed and bounded region, so we can't guarantee that $f$ attains both a maximum and minimum on the constraint.  In fact, a little thought should convince us that $f$ does not have a maximum value.  Notice that $f$ increases as the point $(x,y,z)$ gets farther from the origin.  Since we can find points on the plane $2x+3y-z-9=0$ that are arbitrarily far from the origin, $f$ can get arbitrarily large on the constraint.
+{Notice that the constant equation $2x + 3y - z - 9 = 0$ is the equation for a plane.  This does not define a closed bounded set, so we can't guarantee that $f$ attains both a maximum and minimum on the constraint.  In fact, a little thought should convince us that $f$ does not have a maximum value.  Notice that $f$ increases as the point $(x,y,z)$ gets farther from the origin.  Since we can find points on the plane $2x+3y-z-9=0$ that are arbitrarily far from the origin, $f$ can get arbitrarily large on the constraint.
 	
 To use the method of Lagrange multipliers to find the minimum value of $f$, we first calculate $\nabla f(x,y,z) = \la 2x,2y,2z\ra$ and $\nabla g(x,y,z) = \la 2,3,-1 \ra$.  The system of equations we must solve is
 	\[
@@ -136,7 +138,12 @@ To use the method of Lagrange multipliers to find the minimum value of $f$, we f
 The first equation says $x = \lambda$.  From the second, $y = \dfrac{3}{2}\lambda$ or $y = \dfrac{3}{2}x$.  The third gives $z = -\dfrac{1}{2}\lambda$ or $z = -\dfrac{1}{2}x$.  Substituting into the constraint equation, we have $2x + 3 \left(\dfrac{3}{2}x\right) - \left(-\dfrac{1}{2}x\right)-9 = 0$, which yields $x = \dfrac{9}{7}.$ Then $y = \dfrac{27}{14}$ and $z = -\dfrac{9}{14}$.  We have found that $f(x,y,z) = x^2+y^2 + z^2$ is minimized subject to the constraint $2x+3y-z-9=0$ at the point $\left( \dfrac{9}{7}, \dfrac{27}{14}, -\dfrac{9}{14}\right)$, and has a minimum value of $f\left( \dfrac{9}{7}, \dfrac{27}{14}, -\dfrac{9}{14}\right) = \left(\dfrac{9}{7}\right)^2 + \left(\dfrac{27}{14}\right)^2 + \left(-\dfrac{9}{14}\right)^2 = \dfrac{81}{14}.$
 \vskip.5\baselineskip
 }
-\newpage
+
+\vskip \baselineskip
+
+We now work through a second example in three dimensions.
+
+\vskip \baselineskip
 
 \example{ex_lagrange_application}{Finding Maximum Volume}{
 	A rectangular box has one corner at the origin.  The base of the box rests on the positive $xy$-plane.  Find the maximum volume of the box if the corner opposite the origin lies in the plane $2x+3y+6z=18$.}
@@ -172,8 +179,8 @@ Then
 The maximum volume is given by $f(x,y,z) = (3)(2)(1) = 6$ units$^3$.
 }
 
-\newpage
-\noindent\textbf{\large Lagrange Multipliers with Two Constraints}
+\vskip\baselineskip
+\noindent\textbf{\large The Method of Lagrange Multipliers with Two Constraints}
 \vskip\baselineskip
 
 The method of Lagrange Multipliers can be generalized to find the maximum of minimum of $f$ subject to multiple constraints.  Suppose we want to maximize $f(x,y,z)$ subject to the two constraints $g_1(x,y,z) = 0$ and $g_2(x,y,z) = 0.$  The two surfaces $g_1(x,y,z) = 0$ and $g_2(x,y,z) = 0$ usually intersect in a smooth curve.  We'll call this curve $\mathcal{C}$. Just like the 2D example at the beginning of the section, we want a place where a level surface of $f$ is tangent to the smooth curve $\mathcal{C}$. That is, we want $\nabla f(x,y,z)$ to be parallel to a vector normal to $\mathcal{C}$.  Now, vectors normal to $\mathcal{C}$ at some point lie in the plane normal to $\mathcal{C}$ at that point.  It can be shown that the normal plane is given by $\lambda \nabla g_1(x,y,z) + \mu \nabla g_2(x,y,z)$, where $\lambda$ and $\mu$ are scalars.  So the condition we want is 
@@ -185,7 +192,7 @@ The method of Lagrange Multipliers can be generalized to find the maximum of min
 
 \example{ex_lagrange_2_constraint}{Lagrange Multipliers with Two Constraints}{
 	Find the maximum and minimum values of $f(x,y,z)=x+y+z$ on the intersection of the sphere $x^2+y^2+z^2 = 9$ and the ellipsoid $\dfrac{x^2}{4} + \dfrac{y^2}{4} + 4z^2 = 9.$}
-{Assuming they intersect (and these two do), a sphere and an ellipsoid intersect in a smooth closed curve.  Since we're working on a closed and bounded region, we expect $f$ to obtain both its maximum and minimum values.  Define $g_1(x,y,z) = x^2 + y^2 + z^2 -  9$ and $g_2(x,y,z) = \dfrac{x^2}{4} + \dfrac{y^2}{4} + 4z^2 - 9.$ We start by calculating $\nabla f(x,y,z) = \la 1,1,1 \ra, \nabla g_1(x,y,z) = \la 2x,2y,2z\ra,$ and $\nabla g_2(x,y,z) = \la \dfrac{x}{2}, \dfrac{y}{2}, 8z. \ra$.  Then the system of equations we wish to solve is given by
+{Assuming they intersect (and these two do), a sphere and an ellipsoid intersect in a smooth closed curve.  Since we're optimizing on a closed and bounded set, we expect $f$ to obtain both its maximum and minimum values.  Define $g_1(x,y,z) = x^2 + y^2 + z^2 -  9$ and $g_2(x,y,z) = \dfrac{x^2}{4} + \dfrac{y^2}{4} + 4z^2 - 9.$ We start by calculating $\nabla f(x,y,z) = \la 1,1,1 \ra, \nabla g_1(x,y,z) = \la 2x,2y,2z\ra,$ and $\nabla g_2(x,y,z) = \la \dfrac{x}{2}, \dfrac{y}{2}, 8z. \ra$.  The system of equations we wish to solve is given by
 
 \[
 		\begin{cases}
@@ -227,4 +234,4 @@ The minimum occurs when $x, y,$ and $z$ are all negative, and is given by $$f\le
 
 Constrained optimization is a common task when we seek to solve real world problems, especially in physics.  Though not always straight forward to solve, the method of Lagrange multipliers is an important framework to use when approaching these problems.  When paired with more advanced mathematical techniques such as the calculus of variations, the ideas explored in this section can lead to truly powerful tools to help understand the physical world.
 
-%\printexercises{exercises/12_07_exercises}
+\printexercises{exercises/12_lagrange_exercises}

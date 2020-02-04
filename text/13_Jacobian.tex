@@ -35,9 +35,9 @@ Define the function
 \[
 	T(u,v) = (x,y) = (f(u,v),g(u,v)).
 \]
-We call $T$ a transformation from the $uv$-plane to the $xy$-plane.  Given a point $(u_1,v_1)$ in the $uv$-plane, the transformation $T$ returns a point $(x_1,y_1)$ in the $xy$-plane with coordinates $(f(u_1,v_1),g(u_1,v_1)).$  If the functions $f$ and $g$ are one-to-one, the inverse transformation $T^{-1}$ transforms the point $(x_1,y_1)$ in the $xy$-plane into the point $(u_1,v_1)$ in the $uv$-plane.
+We call $T$ a transformation from the $uv$-plane to the $xy$-plane.  Given a point $(u_1,v_1)$ in the $uv$-plane, the transformation $T$ returns a point $(x_1,y_1)$ in the $xy$-plane with coordinates $(f(u_1,v_1),g(u_1,v_1)).$  If the functions $f$ and $g$ are one-to-one, the inverse transformation $T\primeskip^{-1}$ transforms the point $(x_1,y_1)$ in the $xy$-plane into the point $(u_1,v_1)$ in the $uv$-plane.
 
-For regions, $T$ transforms the region $S$ in the $uv$-plane into the region $R$ in the $xy$-plane, and $T^{-1}$ transforms the region $R$ in the $xy$-plane into the region $S$ in the $uv$-plane.  These ideas are shown graphically in figure \ref{fig:transformation}
+For regions, $T$ transforms the region $S$ in the $uv$-plane into the region $R$ in the $xy$-plane, and $T\primeskip^{-1}$ transforms the region $R$ in the $xy$-plane into the region $S$ in the $uv$-plane.  These ideas are shown graphically in figure \ref{fig:transformation}
 
 %\mfigure{.8}{Visualization of the transformation $T$.}{fig:transformation}{figures/fig12_Jacobian_transformation}
 
@@ -45,11 +45,11 @@ For regions, $T$ transforms the region $S$ in the $uv$-plane into the region $R$
 % count.
 \addtocounter{figure}{1}
 \vskip 10pt
-%\hskip-160pt
-\noindent\begin{minipage}{\textwidth+100pt}
-	\begin{center}{ccc}
-%		\myincludegraphics{figures/fig13_jacobian_transformation}
-	\end{center}
+\hskip-50pt
+\noindent\begin{minipage}[t]{\textwidth+100pt}
+	\begin{tabular}{ccc}
+		\includegraphics[align=c]{figures/fig13_jacobian_transformation_a} & \includegraphics[align=c]{figures/fig13_jacobian_transformation_c} & \includegraphics[align=c]{figures/fig13_jacobian_transformation_b}
+	\end{tabular}
 	\captionsetup{type=figure}%
 	\caption{Visualization of the transformation $T$.}
 	\label{fig:transformation}
@@ -58,6 +58,22 @@ For regions, $T$ transforms the region $S$ in the $uv$-plane into the region $R$
 \vskip10pt
 % further adjusting figure count
 \addtocounter{figure}{-2}
+
+\example{ex_transform_box}{Transforming a Rectangle}{
+	Consider the tranformation $T(u,v)$ defined by
+	\begin{align*}
+		x &= u^2\\
+		y &= u + v.
+	\end{align*}
+	Let $S$ be the rectangular region in the $uv$-plane bounded by the lines 
+	\[
+		u=1, u=2, v=0, \text{ and } v=6
+	\]
+	shown in figure~.  Described the transformed region $R$ in the $xy$-plane.}
+{We first consider the bottom side of the rectangle given by $v=0$ and $1 \leq u \leq 2.$  Using the transformation $T$, we have $x = u^2$ for $1 \leq u \leq 2$ and $y=u + 0.$ Thus, the base of the rectangle in the $uv$-plane transforms into the curve $y = \sqrt{x}$ for $1 \leq x \leq 4$ in the $xy$-plane.
+}
+
+
 
 
 

@@ -1,0 +1,37 @@
+\begin{tikzpicture}[>=stealth]
+\begin{axis}[width=\marginparwidth+25pt,
+tick label style={font=\scriptsize},
+%axis y line=middle,axis x line=middle,
+axis lines = middle,
+name=myplot,%
+xtick={0,1,...,4},%
+%			xticklabels={-2,-1,..,2},
+ytick={0,1,...,8},
+%			yticklabels = {-2,-1,0,1,2},
+%			minor x tick num=1,
+%			extra x ticks={.25,.75},%
+ymin=-.25,ymax=8.25,%
+xmin=-.1,xmax=4.1%
+]
+\addplot [{\colorone}] coordinates{ (1,1) (1,7)};
+\addplot [{\colorone}] coordinates{ (4,2) (4,8)};
+\addplot [{\colorone}, domain = 1:4, samples = 101] {sqrt(x)};
+\addplot [{\colorone}, domain = 1:4, samples = 101] {sqrt(x)+6};
+\node at (axis cs:2.5,4.5) {$R$};
+
+\end{axis}
+\node [right] at (myplot.right of origin) {\scriptsize $x$};
+\node [above] at (myplot.above origin) {\scriptsize $y$};
+\end{tikzpicture}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -60,17 +60,34 @@ For regions, $T$ transforms the region $S$ in the $uv$-plane into the region $R$
 \addtocounter{figure}{-2}
 
 \example{ex_transform_box}{Transforming a Rectangle}{
-	Consider the tranformation $T(u,v)$ defined by
+	Consider the transformation $T(u,v)$ defined by
 	\begin{align*}
 		x &= u^2\\
 		y &= u + v.
 	\end{align*}
 	Let $S$ be the rectangular region in the $uv$-plane bounded by the lines 
 	\[
-		u=1, u=2, v=0, \text{ and } v=6
+		u=1, u=2, v=0, \text{ and } v=6.
 	\]
-	shown in figure~.  Described the transformed region $R$ in the $xy$-plane.}
-{We first consider the bottom side of the rectangle given by $v=0$ and $1 \leq u \leq 2.$  Using the transformation $T$, we have $x = u^2$ for $1 \leq u \leq 2$ and $y=u + 0.$ Thus, the base of the rectangle in the $uv$-plane transforms into the curve $y = \sqrt{x}$ for $1 \leq x \leq 4$ in the $xy$-plane.
+	Describe the transformed region $R$ in the $xy$-plane.}
+{We first consider the bottom side of the rectangle given by $v=0$ and $1 \leq u \leq 2.$  Using the transformation $T$, we have $x = u^2$ and $y=u + 0.$ Combining, we see that the base of the rectangle in the $uv$-plane transforms into the curve $y = \sqrt{x}$ for $1 \leq x \leq 4$ in the $xy$-plane.
+	
+The top side of the rectangle in the $uv$-plane is given by $v=6$ and $1 \leq u \leq 2.$  Using the transformation $T$, we now have $x=u^2$ and $y=u+6.$  Combining, the top of the rectangle in the $uv$-plane transforms into the curve $u = \sqrt{x}+6$ for $1 \leq x \leq 4.$
+
+For the left side of the rectangle in the $uv$-plane, we have $u=1$ and $0 \leq v \leq 6.$  The transformation $T$ gives $x = 1$ and $y = 1+v$.  This is the vertical line segment $x=1$ and $1 \leq y \leq 7.$
+
+The right side of the rectangle in the $uv$-plane is given by $u=2$ and $0 \leq v \leq 6.$ The transformation $T$ gives $x = 4$ and $y = 2 + v$, yielding the vertical line segment $x=4$ and $2 \leq y \leq 8.$
+
+The the original region $S$ in the $uv$-plane and the transformed region $R$ in the $xy$-plane are shown in figure~\ref{fig:transform_box}.
+}
+
+\mtable{.65}{The regions $S$ and the transformed region $R$ from example~\ref{ex_transform_box}.}{fig:transform_box}{%
+	\begin{tabular}{c}
+		\myincludegraphics[scale=1]{figures/fig13_jacobian_transform_box_a}\\
+		(a)\\[15pt]
+		\myincludegraphics[scale=1]{figures/fig13_jacobian_transform_box_b}\\
+		(b)
+	\end{tabular}
 }
 
 

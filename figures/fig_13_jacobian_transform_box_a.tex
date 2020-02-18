@@ -1,0 +1,34 @@
+\begin{tikzpicture}[>=stealth]
+\begin{axis}[width=\marginparwidth+25pt,
+tick label style={font=\scriptsize},
+%axis y line=middle,axis x line=middle,
+axis lines = middle,
+name=myplot,%
+xtick={0,1,2},%
+%			xticklabels={-2,-1,..,2},
+ytick={0,1,...,7},
+%			yticklabels = {-2,-1,0,1,2},
+%			minor x tick num=1,
+%			extra x ticks={.25,.75},%
+ymin=-.25,ymax=6.25,%
+xmin=-.1,xmax=2.5%
+]
+\addplot [{\colorone}] coordinates{ (1,0) (2,0) (2,6) (1,6) (1,0)};
+\node at (axis cs:1.5,3) {$S$};
+
+\end{axis}
+\node [right] at (myplot.right of origin) {\scriptsize $u$};
+\node [above] at (myplot.above origin) {\scriptsize $v$};
+\end{tikzpicture}
+
+
+
+
+
+
+
+
+
+
+
+

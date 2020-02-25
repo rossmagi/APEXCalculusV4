@@ -90,7 +90,32 @@ The the original region $S$ in the $uv$-plane and the transformed region $R$ in 
 	\end{tabular}
 }
 
+\vskip \baselineskip
 
+Often, instead of starting with a region in the $uv$-plane and a transformation, we start with a region in the $xy$-plane and seek a transformation that transforms a simple region in the $uv$-plane into the given region in the $xy$-plane.  We work through this process in the next example.
+
+\vskip \baselineskip
+
+\example{ex_transform_parallelogram}{Transforming a Rectangle into a Parallelogram}{
+	Find a change of variables that transforms a rectangular region in the $uv$-plane into the parallelogram shown in figure~\ref{fig:transform_parallelogram}.}
+{We first note that the region is bounded by the lines
+	\begin{align*}
+		4y - x &= 0\\
+		4y - x &= 10\\
+		2y - 3x &= 0\\
+		2y - 3x &= -10.
+	\end{align*}
+The equations $4y-x=0$ and $4y-x=10$ describe the bottom and top edges of the parallelogram.  In general, the equation $4y-x = k$, for $0 \leq k \leq 10$, describes a family of parallel lines in the $yx$-plane that are parallel to the top and bottom edges of the parallelogram. These lines ``fill in" the parallelogram.  Similarly, the equation $2y-3x=p$, for $-10 \leq p \leq 0$, describes a family of lines in the $xy$-plane that are parallel to the right and left edges of the parallelogram and ``fill in" the parallelogram.
+
+These observations suggest the change of variables $u = 4x-y$ and $v = 2y-3x$ where $0 \leq u \leq 10$ and $-10 \leq v \leq 0.$  Notice though that this is not the transformation we seek.  We want a transformation $T$ that maps the $uv$-plane into the $xy$-plane.  The change of variables suggested maps the $xy$-plane into the $uv$-plane.  Instead of describing $T$, the change of variables defines the inverse transformation, $T^{\primeskip -1}.$  To find $T$, we must solve for $x$ and $y$.  Working through this algebraic process yields the transformation $T(u,v)$ defined by
+	\begin{align*}
+		x &= \frac{u-2v}{5}\\
+		y &= \frac{3u-v}{10}
+	\end{align*}
+This transformation maps the rectangular region $0 \leq u \leq 10$ and $-10 \leq v \leq 0$ in to the parallelogram shown in figure~\ref{fig:transform_parallelogram}.
+}
+
+\mfigure{.8}{The transform from example \ref{ex_transform_parallelogram} transforms a rectangular region in the $uv$-plane into the parallelogram shown above.}{fig:transform_parallelogram}{figures/fig13_jacobian_transform_parallelogram}
 
 
 

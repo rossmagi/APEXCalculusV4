@@ -121,6 +121,25 @@ This transformation maps the rectangular region $0 \leq u \leq 10$ and $-10 \leq
 
 We have seen how transformations affect regions.  We need to know how they affect integrals.  Consider a small rectangle $S$ in the $uv$-plane with side length $\Delta u$ and $\Delta v.$  This rectangle is transformed by the transformation $T(u,v) = (f(u,v),g(u,v))$ into the region $R$ in the $xy$-plane as shown below.
 
+% because middle of the page figures get labels before the marginal ones do, we need to adjust the figure
+% count.
+\addtocounter{figure}{1}
+\vskip 10pt
+\hskip-50pt
+\noindent\begin{minipage}[t]{\textwidth+100pt}
+	\begin{tabular}{ccc}
+		\includegraphics[align=c]{figures/fig13_jacobian_area_transformation_a} & \includegraphics[align=c]{figures/fig13_jacobian_area_transformation_b} & \includegraphics[align=c]{figures/fig13_jacobian_area_transformation_c}
+	\end{tabular}
+	\captionsetup{type=figure}%
+	\caption{A small region transformed by $T(u,v) = (f(u,v),g(u,v))$.  The transformed points have coordinates $A = (f(u_1,v_1),g(u_1,v_1)), B = (f(u_1+\Delta u, v_1), g(u_1+\Delta u, v_1)), C = (f(u_1+ \Delta u,v_1 + \Delta v), g(u_1 + \Delta u, v_1 + \Delta v)),$ and $D = (f(u_1,v_1 + \Delta v),g(u_1, v_1 + \Delta v)).$}
+	\label{fig:area_transformation}
+\end{minipage}
+\\
+\vskip10pt
+% further adjusting figure count
+\addtocounter{figure}{-2}
+
+The vector $\vv{AB}$ in figure \ref{fig:area_transformation} is given by \[\vv{AB}~=~\langle f(u_1+\Delta u,v_1)-f(u_1,v_1),g(u_1+\Delta u,v_1)-g(u_1,v_1)\rangle.\]  Similarly, \[\vv{AD} = \langle f(u_1,v_1 + \Delta v) - f(u_1,v_1), g(u_1,v_1 + \Delta v) - g(u_1,v_1)\rangle.\]  Recall that the magnitude of the cross product $||\vv{AB} \times \vv{AD}||$ gives the area of a parallelogram with sides $\vv{AB}$ and $\vv{AD}.$  It follows that the area of the transformed region $R$ is approximately equal to $||\vv{AB} \times \vv{AD}||.$
 
 
 %\printexercises{exercises/13_06_exercises}

@@ -1,7 +1,30 @@
 \thispagestyle {empty}
 \contentsline {chapter}{Table of Contents}{iii}{Doc-Start}%
 \contentsline {chapter}{Preface}{v}{section*.2}%
-\contentsline {section}{\numberline {0.1}Constrained Optimization: Lagrange Multipliers}{1}{section.0.1}%
-\contentsline {section}{\numberline {0.2}Change of Variables: Jacobians}{11}{section.0.2}%
+\contentsline {chapter}{\numberline {12}Functions of Several Variables}{683}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Introduction to Multivariable Functions}{683}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Limits and Continuity of Multivariable Functions}{690}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Partial Derivatives}{700}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Differentiability and the Total Differential}{712}{section.12.4}%
+\contentsline {section}{\numberline {12.5}The Multivariable Chain Rule}{721}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Directional Derivatives}{729}{section.12.6}%
+\contentsline {section}{\numberline {12.7}Tangent Lines, Normal Lines, and Tangent Planes}{739}{section.12.7}%
+\contentsline {section}{\numberline {12.8}Extreme Values}{749}{section.12.8}%
+\contentsline {section}{\numberline {12.9}Constrained Optimization: Lagrange Multipliers}{759}{section.12.9}%
+\contentsline {chapter}{\numberline {13}Multiple Integration}{769}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Iterated Integrals and Area}{769}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Double Integration and Volume}{779}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Double Integration with Polar Coordinates}{790}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Center of Mass}{797}{section.13.4}%
+\contentsline {section}{\numberline {13.5}Surface Area}{809}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Triple Integration with Cylindrical and Spherical Coordinates}{816}{section.13.6}%
+\contentsline {section}{\numberline {13.7}Change of Variables: Jacobians}{827}{section.13.7}%
+\enlargethispage {6\baselineskip }
+\contentsline {chapter}{\numberline {14}Vector Analysis}{833}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Vector Fields}{833}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Line Integrals over Vector Fields}{843}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Flow, Flux, Green's Theorem and the Divergence Theorem}{854}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Parametrized Surfaces and Surface Area}{864}{section.14.4}%
+\contentsline {section}{\numberline {14.5}The Divergence Theorem and Stokes' Theorem}{875}{section.14.5}%
 \contentsline {chapter}{\numberline {A}Solutions To Selected Problems}{A.1}{appendix.A}%
-\contentsline {chapter}{Index}{A.3}{section*.9}%
+\contentsline {chapter}{Index}{A.11}{section*.121}%

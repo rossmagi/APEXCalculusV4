@@ -17,14 +17,16 @@
 \contentsline {section}{\numberline {13.3}Double Integration with Polar Coordinates}{790}{section.13.3}%
 \contentsline {section}{\numberline {13.4}Center of Mass}{797}{section.13.4}%
 \contentsline {section}{\numberline {13.5}Surface Area}{809}{section.13.5}%
-\contentsline {section}{\numberline {13.6}Triple Integration with Cylindrical and Spherical Coordinates}{816}{section.13.6}%
-\contentsline {section}{\numberline {13.7}Change of Variables: Jacobians}{827}{section.13.7}%
+\contentsline {section}{\numberline {13.6}Volume Between Surfaces and Triple Integration}{816}{section.13.6}%
+\contentsline {section}{\numberline {13.7}Triple Integration with Cylindrical and Spherical Coordinates}{838}{section.13.7}%
 \enlargethispage {6\baselineskip }
-\contentsline {chapter}{\numberline {14}Vector Analysis}{833}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Vector Fields}{833}{section.14.1}%
-\contentsline {section}{\numberline {14.2}Line Integrals over Vector Fields}{843}{section.14.2}%
-\contentsline {section}{\numberline {14.3}Flow, Flux, Green's Theorem and the Divergence Theorem}{854}{section.14.3}%
-\contentsline {section}{\numberline {14.4}Parametrized Surfaces and Surface Area}{864}{section.14.4}%
-\contentsline {section}{\numberline {14.5}The Divergence Theorem and Stokes' Theorem}{875}{section.14.5}%
+\contentsline {chapter}{\numberline {14}Vector Analysis}{849}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Introduction to Line Integrals}{850}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Vector Fields}{860}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Line Integrals over Vector Fields}{869}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Flow, Flux, Green's Theorem and the Divergence Theorem}{880}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Parametrized Surfaces and Surface Area}{890}{section.14.5}%
+\contentsline {section}{\numberline {14.6}Surface Integrals}{901}{section.14.6}%
+\contentsline {section}{\numberline {14.7}The Divergence Theorem and Stokes' Theorem}{910}{section.14.7}%
 \contentsline {chapter}{\numberline {A}Solutions To Selected Problems}{A.1}{appendix.A}%
-\contentsline {chapter}{Index}{A.11}{section*.121}%
+\contentsline {chapter}{Index}{A.11}{section*.139}%
